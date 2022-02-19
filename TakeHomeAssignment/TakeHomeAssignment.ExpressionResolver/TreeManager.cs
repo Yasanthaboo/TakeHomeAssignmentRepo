@@ -8,7 +8,7 @@ namespace TakeHomeAssignment.ExpressionResolver
 {
     internal class TreeManager
     {
-        internal void BuildTree(string postFixedExpression)
+        internal TreeNode BuildTree(string postFixedExpression)
         {
             var tokenizeExpression = postFixedExpression.Split(' ');
            
@@ -23,6 +23,7 @@ namespace TakeHomeAssignment.ExpressionResolver
                 else
                     stack.Push(new TreeNode(token));
 
+            return stack.Pop();
         }
 
         public  int EvalTree(TreeNode root)

@@ -33,12 +33,7 @@ namespace TakeHomeAssignment.ExpressionResolver
             ExpectedOutput("4 5 + 3 -");
         }
 
-        [Test]
-        public void TranceformExpressionWithMultipleLevelPrecedenceOperators()
-        {
-            GivenTestData("q = a - 5 * 3 + 4");
-            ExpectedOutput("q a 5 3 * - 4 + =");
-        }
+        
 
         [Test]
         public void RemoveOutterparanthasis()
@@ -78,13 +73,15 @@ namespace TakeHomeAssignment.ExpressionResolver
             
         }
 
+        [Test]
+        public void EvaluateBinarytreeResult()
+        {
+            var treeManager = new TreeManager();
+            var tree = treeManager.BuildTree("15 7 1 1 + - / -3 * 2 1 1 + + -");
+            var reseult = treeManager.EvalTree(tree);
+            Assert.That(reseult.ToString(), Is.EqualTo("-13"));
 
-
-
-
-
-
-
+        }
         private void ExpectedOutput(string output)
         {
             Assert.That(_result,Is.EqualTo(output));

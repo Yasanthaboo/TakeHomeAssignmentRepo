@@ -10,7 +10,12 @@ namespace TakeHomeAssignment.ExpressionResolver
     {
         static void Main(string[] args)
         {
+            var treeManager = new TreeManager();
+           var tree =  treeManager.BuildTree("15 7 1 1 + - / -3 * 2 1 1 + + -");
+           var reseult=treeManager.EvalTree(tree);
+           Console.WriteLine(Convert.ToString(reseult));
 
+            Console.ReadLine();
         }
     }
 }
