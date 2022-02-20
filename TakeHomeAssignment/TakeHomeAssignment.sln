@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeHomeAssignment.ExpressionResolver", "TakeHomeAssignment.ExpressionResolver\TakeHomeAssignment.ExpressionResolver.csproj", "{780BF8F4-070B-4DBE-A641-54E42A3609A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeHomeAssignment.HotelManager", "TakeHomeAssignment.HotelManager\TakeHomeAssignment.HotelManager.csproj", "{0D41CCA1-A86E-4DA3-88ED-1DCE8404923C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{780BF8F4-070B-4DBE-A641-54E42A3609A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{780BF8F4-070B-4DBE-A641-54E42A3609A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{780BF8F4-070B-4DBE-A641-54E42A3609A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D41CCA1-A86E-4DA3-88ED-1DCE8404923C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D41CCA1-A86E-4DA3-88ED-1DCE8404923C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D41CCA1-A86E-4DA3-88ED-1DCE8404923C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D41CCA1-A86E-4DA3-88ED-1DCE8404923C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
