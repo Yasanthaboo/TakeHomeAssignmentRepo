@@ -1,15 +1,14 @@
 ﻿namespace TakeHomeAssignment.HotelManager.SystemObjects
 {
-    public class Available : RoomState
+    public class Vacant : RoomState
     {
-        public Available()
+        public Vacant()
         {
 
         }
-
         public override void ChangeRoomState(Room room)
         {
-            room.State = new Occupied();
+            room.State = new Clean();
         }
     }
 }

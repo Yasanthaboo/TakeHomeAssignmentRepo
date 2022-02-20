@@ -58,8 +58,10 @@
     <Compile Include="Room.cs" />
     <Compile Include="SystemObjects\Available.cs" />
     <Compile Include="SystemObjects\Clean.cs" />
+    <Compile Include="SystemObjects\Occupied.cs" />
     <Compile Include="SystemObjects\Repair.cs" />
     <Compile Include="SystemObjects\RoomState.cs" />
+    <Compile Include="SystemObjects\Vacant.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

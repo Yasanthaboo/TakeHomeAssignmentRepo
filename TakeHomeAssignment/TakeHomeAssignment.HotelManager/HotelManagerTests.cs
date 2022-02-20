@@ -13,8 +13,39 @@ namespace TakeHomeAssignment.HotelManager
         [Test]
         public void BuildHotel()
         {
-            var hotel = new Hote(List<string> roomNames ,int  noOfFloors);
+            List<string> roomNames = new List<string> {"A","B","C","D","E" };
+            int noOfFloors = 4;
+            var hotel = new Hotel(roomNames,noOfFloors);
             Assert.That("1",Is.EqualTo("1"));
+        }
+
+        [Test]
+        public void FindHotelWhenRoomsNotAvaiable()
+        {
+            List<string> roomNames = new List<string> { "A", "B", "C", "D", "E" };
+            int noOfFloors = 4;
+            var hotel = new Hotel(roomNames, noOfFloors);
+            var firstRoom = hotel.Rooms.First();
+            hotel.FindRoom(hotel.Paths,hotel.Rooms,firstRoom);
+            
+        }
+
+        [Test]
+        public void AssignAavailableroom()
+        {
+            List<string> roomNames = new List<string> { "A", "B", "C", "D", "E" };
+            int noOfFloors = 4;
+            var hotel = new Hotel(roomNames, noOfFloors);
+            Assert.That("1", Is.EqualTo("1"));
+        }
+
+        [Test]
+        public void FindAllAvailableRooms()
+        {
+            List<string> roomNames = new List<string> { "A", "B", "C", "D", "E" };
+            int noOfFloors = 4;
+            var hotel = new Hotel(roomNames, noOfFloors);
+            Assert.That("1", Is.EqualTo("1"));
         }
     }
 }
