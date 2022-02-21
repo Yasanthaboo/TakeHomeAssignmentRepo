@@ -17,23 +17,37 @@ namespace TakeHomeAssignment.HotelManager
 
             while (!IsExit)
             {
-                Console.WriteLine("-----------------------------------------------------------------------------------------");
-                Console.WriteLine("Please enter option no  to continue.");
-                Console.WriteLine("Enter 1 for display all available rooms.");
-                Console.WriteLine("Enter 2 for assign a  room.");
-                Console.WriteLine("Enter 3 for check in  to a room.");
-                Console.WriteLine("Enter 4 for check out. ");
-                Console.WriteLine("Enter 5 for  assign the room for repair.");
-                Console.WriteLine("Enter 6 clean the  room");
-                Console.WriteLine("Enter 'Exit' exit from application");
-                Console.WriteLine("-----------------------------------------------------------------------------------------");
-
+                Display();
                 var request = Console.ReadLine();
-
                 IsExit = HandleOperations(allocationManager, IsExit, request);
             }
         }
 
+        /// <summary>
+        /// display  instructions
+        /// </summary>
+        private static void Display()
+        {
+            Console.WriteLine("-----------------------------------------------------------------------------------------");
+            Console.WriteLine("Please enter option no  to continue.");
+            Console.WriteLine("Enter 1 for display all available rooms.");
+            Console.WriteLine("Enter 2 for assign a  room.");
+            Console.WriteLine("Enter 3 for check in  to a room.");
+            Console.WriteLine("Enter 4 for check out. ");
+            Console.WriteLine("Enter 5 for  assign the room for repair.");
+            Console.WriteLine("Enter 6 clean the  room");
+            Console.WriteLine("Enter 7 complete the  repair");
+            Console.WriteLine("Enter 'Exit' exit from application");
+            Console.WriteLine("-----------------------------------------------------------------------------------------");
+        }
+
+        /// <summary>
+        /// Manage operations
+        /// </summary>
+        /// <param name="allocationManager"></param>
+        /// <param name="IsExit"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
         private static bool HandleOperations(Hotel allocationManager, bool IsExit, string request)
         {
             try
@@ -74,7 +88,8 @@ namespace TakeHomeAssignment.HotelManager
             }
             catch (Exception er)
             {
-                Console.WriteLine("Error occured. Unable to execute the  request.");
+                Console.WriteLine(string.Format("Error occured. Unable to execute the  request./n{0}",er.Message));
+                //add logs  here
                 return false;
             }
             
@@ -132,6 +147,9 @@ namespace TakeHomeAssignment.HotelManager
                 Console.WriteLine(string.Format("{0} been assinged to you.", roomNo));
             else
                 Console.WriteLine("Unble to assing a room");
+
+            allocationManager.CheckIn(roomNo);
+          
         }
 
         private static void HandleCheckOut(Hotel allocationManager)

@@ -94,10 +94,6 @@ namespace TakeHomeAssignment.HotelManager
             var room = hotel.CleanTheRoom(roomNo);
             Assert.That(room.CurrentState(), Is.EqualTo("Available"));
 
-            // checking   for  repair  scenario
-            selectedRoom.State = new Repair();
-             room = hotel.CleanTheRoom(roomNo);
-            Assert.That(room.CurrentState(), Is.EqualTo("Available"));
         }
 
         [Test]

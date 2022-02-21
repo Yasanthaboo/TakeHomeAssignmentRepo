@@ -8,7 +8,11 @@
         }
         public override void ChangeRoomState(Room room)
         {
-            room.State = new Clean();
+            if(room.IsCleaned)
+                room.State = new Available();
+            else if(room.IsRepaired)
+                room.State = new Repair();
+
         }
     }
 }

@@ -20,6 +20,16 @@ namespace TakeHomeAssignment.ExpressionResolver
         }
 
         [Test]
+        public void GetSpacedStringResult()
+        {
+            var expressionMgr = new ExpressionManager();
+            var result = expressionMgr.GetSpacedStrinng("15÷(7-(1+1))*-3)-(2+(1+1))");
+            Assert.That(result, Is.EqualTo("( 15 ÷ ( 7 - ( 1 + 1 ) ) * -3 ) - ( 2 + ( 1 + 1 ) )"));
+        }
+
+        
+
+        [Test]
         public void ValidateNullExpressionResult()
         {
             GivenTestData(null);
@@ -45,8 +55,8 @@ namespace TakeHomeAssignment.ExpressionResolver
         [Test]
         public void EvaluateNeededparanthasis()
         {
-            GivenTestData("( 3 + 5 ) / 4");
-            ExpectedOutput("3 5 + 4 /");
+            GivenTestData("( 3 + 5 ) ÷ 4");
+            ExpectedOutput("3 5 + 4 ÷");
         }
 
 
@@ -60,15 +70,15 @@ namespace TakeHomeAssignment.ExpressionResolver
         [Test]
         public void EvaluateNeededNestedparanthasis()
         {
-            GivenTestData("( 15 / ( 7 - ( 1 + 1 ) ) * -3 ) - ( 2 + ( 1 + 1 ) )");
-            ExpectedOutput("15 7 1 1 + - / -3 * 2 1 1 + + -");
+            GivenTestData("( 15 ÷ ( 7 - ( 1 + 1 ) ) * -3 ) - ( 2 + ( 1 + 1 ) )");
+            ExpectedOutput("15 7 1 1 + - ÷ -3 * 2 1 1 + + -");
         }
 
         [Test]
         public void EvaluatPostFixResult()
         {
             var manager = new ExpressionManager();
-            var result = manager.EvaluatePostFix("15 7 1 1 + - / -3 * 2 1 1 + + -");
+            var result = manager.EvaluatePostFix("15 7 1 1 + - ÷ -3 * 2 1 1 + + -");
             Assert.That(result.ToString(), Is.EqualTo("-13"));
             
         }
@@ -77,7 +87,7 @@ namespace TakeHomeAssignment.ExpressionResolver
         public void EvaluateBinarytreeResult()
         {
             var treeManager = new TreeManager();
-            var tree = treeManager.BuildTree("15 7 1 1 + - / -3 * 2 1 1 + + -");
+            var tree = treeManager.BuildTree("15 7 1 1 + - ÷ -3 * 2 1 1 + + -");
             var reseult = treeManager.EvalTree(tree);
             Assert.That(reseult.ToString(), Is.EqualTo("-13"));
 

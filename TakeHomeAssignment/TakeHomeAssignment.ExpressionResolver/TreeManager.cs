@@ -8,6 +8,12 @@ namespace TakeHomeAssignment.ExpressionResolver
 {
     internal class TreeManager
     {
+        private int _count = 10;
+        /// <summary>
+        /// Buid tree
+        /// </summary>
+        /// <param name="postFixedExpression"></param>
+        /// <returns></returns>
         internal TreeNode BuildTree(string postFixedExpression)
         {
             var tokenizeExpression = postFixedExpression.Split(' ');
@@ -26,6 +32,11 @@ namespace TakeHomeAssignment.ExpressionResolver
             return stack.Pop();
         }
 
+        /// <summary>
+        /// Calculate the answar
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
         public  int EvalTree(TreeNode root)
         {
 
@@ -56,18 +67,46 @@ namespace TakeHomeAssignment.ExpressionResolver
             return leftEval / rightEval;
         }
 
+        /// <summary>
+        /// Check for  math  operators
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
         private bool IsMathOperator(string token)
         {
             return "+".Equals(token) ||
-              "-".Equals(token) || "*".Equals(token) || "/".Equals(token);
+              "-".Equals(token) || "*".Equals(token) || "÷".Equals(token);
         }
-
-        internal void PrintTree()
+        
+        /// <summary>
+        /// print sub tree
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="space"></param>
+        public void PrintSubTree(TreeNode root, int space)
         {
+            if (root == null)
+                return;
 
+            space += _count;
+
+            PrintSubTree(root.Right, space);
+            Console.Write("\n");
+
+            for (int i = _count; i < space; i++)
+                Console.Write(" ");
+
+            Console.Write(root.Data + "\n");
+            PrintSubTree(root.Left, space);
         }
-
-
+        /// <summary>
+        /// print the tree
+        /// </summary>
+        /// <param name="root"></param>
+        public void PrintTree(TreeNode root)
+        {
+            PrintSubTree(root, 0);
+        }
     }
 
 }
